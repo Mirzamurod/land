@@ -38,17 +38,17 @@ const land = {
         }
 
         if (req.user) {
-            const { landSize, landPrice, rent, decs, location } = req.body
+            const { landSize, landPrice, rent, desc, location } = req.body
 
             await Land.create({
                 landSize,
                 landPrice,
                 rent,
-                decs,
+                desc,
                 location,
                 phone: req.user.phone,
                 user: req.user.user,
-                userId: req.user.userId,
+                userId: req.user.id,
             }).then(() => res.status(201).json({ message: 'Land added', success: true }))
         } else res.status(400).json({ message: 'Land not found', success: false })
     }),
@@ -68,7 +68,7 @@ const land = {
             const land = await Land.findById(req.params.id)
 
             if (land) {
-                const { landSize, landPrice, rent, decs, location } = req.body
+                const { landSize, landPrice, rent, desc, location } = req.body
 
                 await Land.findByIdAndUpdate(
                     req.params.id,
@@ -76,11 +76,11 @@ const land = {
                         landSize,
                         landPrice,
                         rent,
-                        decs,
+                        desc,
                         location,
                         phone: req.user.phone,
                         user: req.user.user,
-                        userId: req.user.userId,
+                        userId: req.user.id,
                     },
                     { new: true }
                 ).then(() => res.status(200).json({ message: 'Land updated', success: true }))
