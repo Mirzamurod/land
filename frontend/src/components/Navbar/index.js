@@ -43,7 +43,7 @@ const Navbar1 = () => {
     return (
         <Navbar bg='light' expand='lg'>
             <Container fluid>
-                <NavLink className='navbar-brand' to='/'>React-Bootstrap</NavLink>
+                <NavLink className='navbar-brand' to='/'>Mening yerim</NavLink>
                 <Navbar.Toggle aria-controls='basic-navbar-nav'/>
                 <Navbar.Collapse id='basic-navbar-nav'>
                     <Nav className='ms-auto'>
