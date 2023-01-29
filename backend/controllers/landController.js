@@ -38,7 +38,7 @@ const land = {
         }
 
         if (req.user) {
-            const { landSize, landPrice, rent, desc, location } = req.body
+            const { landSize, landPrice, rent, desc, name, location } = req.body
 
             await Land.create({
                 landSize,
@@ -46,6 +46,7 @@ const land = {
                 rent,
                 desc,
                 location,
+                name,
                 phone: req.user.phone,
                 user: req.user.user,
                 userId: req.user.id,
