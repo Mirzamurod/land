@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { encode } from 'js-base64'
-import { apiPcStore, user, userReg } from './../api'
+import { apiLand, user, userReg } from './../api'
 
 const login = createSlice({
     name: 'user',
@@ -33,7 +33,7 @@ const login = createSlice({
 })
 
 export const userLogin = data =>
-    apiPcStore({
+    apiLand({
         url: user,
         method: 'post',
         data,
@@ -43,7 +43,7 @@ export const userLogin = data =>
     })
 
 export const userRegister = data =>
-    apiPcStore({
+    apiLand({
         url: userReg,
         method: 'post',
         data,
@@ -53,7 +53,7 @@ export const userRegister = data =>
     })
 
 export const userProfile = () =>
-    apiPcStore({
+    apiLand({
         url: user,
         method: 'get',
         onStart: login.actions.onStart.type,
@@ -62,7 +62,7 @@ export const userProfile = () =>
     })
 
 export const userUpdate = data =>
-    apiPcStore({
+    apiLand({
         url: user,
         method: 'put',
         data,
@@ -72,7 +72,7 @@ export const userUpdate = data =>
     })
 
 export const userDelete = data =>
-    apiPcStore({
+    apiLand({
         url: user,
         method: 'post',
         data,
